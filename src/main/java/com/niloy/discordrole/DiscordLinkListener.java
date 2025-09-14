@@ -17,8 +17,8 @@ public class DiscordLinkListener implements Listener {
             String roleId = DiscordRolePlugin.getInstance().getConfig().getString("linked-role-id");
             Guild guild = DiscordSRV.getPlugin().getMainGuild();
             Role role = guild.getRoleById(roleId);
-            if (role != null && event.getLinkedDiscordId() != null) {
-                guild.addRoleToMember(event.getLinkedDiscordId(), role).queue();
+            if (role != null && event.getPlayer().getDiscordId() != null) {
+                guild.addRoleToMember(event.getPlayer().getDiscordId(), role).queue();
             }
         });
     }
@@ -29,8 +29,8 @@ public class DiscordLinkListener implements Listener {
             String roleId = DiscordRolePlugin.getInstance().getConfig().getString("linked-role-id");
             Guild guild = DiscordSRV.getPlugin().getMainGuild();
             Role role = guild.getRoleById(roleId);
-            if (role != null && event.getLinkedDiscordId() != null) {
-                guild.removeRoleFromMember(event.getLinkedDiscordId(), role).queue();
+            if (role != null && event.getPlayer().getDiscordId() != null) {
+                guild.removeRoleFromMember(event.getPlayer().getDiscordId(), role).queue();
             }
         });
     }
